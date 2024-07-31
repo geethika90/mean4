@@ -1,0 +1,15 @@
+{
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=18 <19"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm start --prefix geeks\" \"npm start --prefix server\"",
+    "build": "npm run build --prefix geeks",
+    "start": "npm start --prefix server"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
