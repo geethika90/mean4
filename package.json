@@ -5,9 +5,11 @@
     "node": ">=18 <19"
   },
   "scripts": {
-    "dev": "concurrently \"npm start --prefix geeks\" \"npm start --prefix server\"",
-    "build": "npm run build --prefix geeks",
-    "start": "npm start --prefix server"
+    "dev": "cd server && npm start & cd geeks && npm start",
+    "prebuild": "cd geeks && npm run build",
+    "build": "cd server && npm run build",
+    "start": "cd geeks && npm start",
+    "startbackend":"cd server && npm start"
   },
   "dependencies": {
     "concurrently": "^8.2.2"
