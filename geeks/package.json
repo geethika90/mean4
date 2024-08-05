@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "npm install --force && ng build --configuration production --output-path dist"
+    "start": "node --max_old_space_size=8192 ng serve",
+    "build": "node --max_old_space_size=8192 npm install --force && ng build --configuration production --output-path dist"
   },
   "private": true,
   "dependencies": {
