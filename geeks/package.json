@@ -6,6 +6,9 @@
     "start": "node --max_old_space_size=8192 && ng serve",
     "build": "node --max_old_space_size=8192 && npm install --force && ng build"
   },
+  "engines": {
+    "node": "20.15.1"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.1.0",
