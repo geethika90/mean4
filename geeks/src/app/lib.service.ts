@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LibModel } from './lib.model';
+import { environment } from '../environments/environment';
 //Deletebook/:bookName /registerBook /Allbooks /Onebook/:bookName /Updatebook/:bookName
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,8 @@ import { LibModel } from './lib.model';
 export class LibService {
   constructor(private http: HttpClient) {}
 
-  baseurl: string = 'https://mean3.onrender.com/';
+  private readonly baseurl = environment.apiUrl;
+  // baseurl: string = 'https://mean3.onrender.com/';
 
   getAllLibs() {
     return this.http.get<LibModel[]>(this.baseurl + 'Allbooks');
