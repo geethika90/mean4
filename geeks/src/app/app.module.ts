@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { LibraryComponent } from './library/library.component';
 import { AddBooksComponent } from './add-books/add-books.component';
 import { FormsModule } from '@angular/forms';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,7 +25,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginator,
   ],
-  providers: [LibService, provideHttpClient(), provideAnimationsAsync()],
+  providers: [LibService, provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
