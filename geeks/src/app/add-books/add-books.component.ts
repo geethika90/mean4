@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LibService } from '../lib.service';
@@ -9,7 +9,7 @@ import { LibModel } from '../lib.model';
   templateUrl: './add-books.component.html',
   styleUrls: ['./add-books.component.css'],
 })
-export class AddBooksComponent implements OnInit {
+export class AddBooksComponent implements OnInit, OnDestroy {
   libraryForm: FormGroup;
   submitted = false;
   editingBook: LibModel | null = null;
@@ -34,6 +34,9 @@ export class AddBooksComponent implements OnInit {
       this.editingBook = state.book;
       this.libraryForm.patchValue(this.editingBook);
     }
+  }
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
   }
 
   ngOnInit(): void {}

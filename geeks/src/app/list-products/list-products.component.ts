@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,7 +11,7 @@ import { LibModel } from '../lib.model';
   templateUrl: './library.component.html',
   styleUrls: ['./library.component.css'],
 })
-export class LibraryComponent implements OnInit {
+export class LibraryComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = [
     'BookName',
     'Author',
@@ -26,6 +26,9 @@ export class LibraryComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private libService: LibService, private router: Router) {}
+  ngOnDestroy(): void {
+    this.dataSource.data = [];
+  }
 
   ngOnInit(): void {
     this.loadBooks();
