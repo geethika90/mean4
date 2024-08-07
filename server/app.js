@@ -42,6 +42,12 @@ app.get("/signUp", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running at port no ${PORT}`);
 });
+app.get('/api/getData', function (req, res) {
+});
+app.use(errorHandler);
+app.get('*.*', express.static(__dirname + '/public', {maxAge: '1y'}));
+app.all('*', function (req, res) {res.status(200).sendFile(`/`, {root: __dirname + '/public'});})
+
 
 //********************************************************************************* */
 // var express = require("express");
